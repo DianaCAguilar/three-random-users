@@ -43,14 +43,15 @@ p.then(data => {
 })
 
 const renderNums = () => {
-    let html = [];
+    let numlist = [];
     for (let i = 1; i <= 3; i++) {
-       html.push( 
+        numlist.push( 
         `<li><a href = '#${i}'>
             ${i}
         </a></li>`);
     }
-    numList.innerHTML = html.join('');
+    const html = numlist.join('');
+    numList.innerHTML = html
 }
 renderNums()
 //using hash, 0 is the home page all users are displayed
@@ -63,7 +64,7 @@ renderNums()
 
 
 window.addEventListener('hashchange', () => {
-    const userSelect = window.location;
+    const userSelect = window.location.hash.slice(1);
     console.log(userSelect)
 })
 
